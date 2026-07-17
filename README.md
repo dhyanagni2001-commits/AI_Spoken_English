@@ -50,20 +50,6 @@ source venv/bin/activate   # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### Configure environment
-
-```bash
-cp .env.example .env
-```
-
-Edit `.env` and set your own values:
-
-```
-OPENAI_API_KEY=your-key-here
-OPENAI_MODEL=gpt-4o-mini
-```
-
-> **Note:** `.env` is for local secrets only and should never be committed. See the [Security](#security) section below.
 
 ### Run
 
@@ -106,14 +92,6 @@ Example with `curl`:
 curl -X POST http://localhost:8000/analyze \
   -F "file=@sample.wav"
 ```
-
-## Security
-
-This repo currently has `.env` and `.env.example` committed to git, and `.env.example` contains a live-looking API key rather than a placeholder. **Rotate/revoke that key immediately** if it hasn't been already, then:
-
-- Add `venv/`, `.env`, and `__pycache__/` to `.gitignore`.
-- Remove `.env` from version control (`git rm --cached`) and scrub it from history if the repo is/was public.
-- Keep only placeholder values in `.env.example`.
 
 ## Roadmap / known gaps
 
